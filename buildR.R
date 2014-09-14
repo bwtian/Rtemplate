@@ -4,7 +4,7 @@ buildRpkg <- function(pkgName, pkgWD) {
         if(!require("roxygen2")) {
                 install.packages("roxygen2")
         } else {
-                roxygenise(package.dir=package.dir)
+                roxygenise(package.dir=pkgDir)
         }
 system(command=paste0("R CMD INSTALL '", pkgDir,"'"))
 
