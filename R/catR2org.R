@@ -12,7 +12,7 @@ catR2org  <- function(pkgRepo, pkgWD){
                 rPath  <- file.path(pkgDir, "/R")
                 rfiles  <- list.files(path = rPath, pattern = "\\.[rR]$")
                 #readLines(file.path(rPath, "BSL.R"))
-                for (i %in% ){
+                for (i %in% rfiles){
                         heading  <- paste0("* ", i)
                         header  <- "#+BEGIN_SRC R"
                         rfile  <- readLines(file.path(rPath,i))
