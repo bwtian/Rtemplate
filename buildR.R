@@ -7,6 +7,6 @@ buildRpkg <- function( pkgName, pkgWD) {
         } else {
                 roxygenise(package.dir=package.dir)
         }
-system(command=paste0("R CMD INSTALL '", pkgDir,"'",sep=""))
+system(command=paste0("R CMD INSTALL '", pkgDir,"'"))
 
 }
