@@ -1,4 +1,3 @@
-
 buildRpkg <- function( pkgName, pkgWD) {
         pkgWD <- getwd()
         pkgDir <- file.path(pkgWD,pkgName)
