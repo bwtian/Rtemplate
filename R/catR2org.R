@@ -15,7 +15,7 @@ catR2org  <- function(pkgRepo, pkgWD){
                         heading  <- paste0("* ", i)
                         header  <- "#+BEGIN_SRC R"
                         rfile  <- readLines(file.path(rPath,i))
-                        ender  <- paste0("#+BEGIN_SRC R ", "\n")
+                        ender  <- "#+BEGIN_SRC R"
                         write.table(rbind(heading, header,rfile, ender), orgName, sep = "\n",  append = TRUE,quote = FALSE, col.names = FALSE,row.names = FALSE)
                 }
 
