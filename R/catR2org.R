@@ -16,15 +16,5 @@ catR2org  <- function(pkgRepo, pkgWD){
                         ender  <- paste0("#+BEGIN_SRC R ", "\n")
                         write.table(rbind(heading, header,rfile, ender), orgName, sep = "\n",  append = T,quote = F, row.names = F)
                 }
-                write.table(df, csvName, sep = ",",  append = T,quote = F, row.names = F)
-                        for i in $(\ls | grep ${1:-.R}); do
-                        echo "* $i"  # subtree header title
-                        echo "#+BEGIN_SRC R :session" # R session
-                        cat "$i"                      # Content
-                        echo "#+END_SRC"              # R session
-                        done > ${2:-$(echo $package$version.org)}                     # output
-                        mv *.org ~/Dropbox/ebooks/02_Rcode_pkgs
-                        echo "Porcessing Finished"
-                }
-
+                message("Porcessing Finished")
 }
