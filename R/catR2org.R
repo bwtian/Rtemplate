@@ -1,5 +1,5 @@
 catR2org  <- function(pkgRepo, pkgWD){
-                pkgRepo  <- "landsat"
+                #pkgRepo  <- "landsat"
                 pkgWD <- getwd()
                 pkgDir <- file.path(pkgWD,pkgRepo)
                 pkgDir
@@ -12,15 +12,15 @@ catR2org  <- function(pkgRepo, pkgWD){
                 pkgName  <-gsub("(^ *)|( *$)", "", pkgName)
                 orgName  <- paste0(pkgName, "_", pkgVer, ".org")
                 rPath  <- file.path(pkgDir, "/R")
-                readLines(file.path(rPath, "BSL.R"))
+                #readLines(file.path(rPath, "BSL.R"))
                 for (i in list.files(path = rPath, pattern = "[rR]$")){
                         heading  <- paste0("* ", i, "\n")
                         header  <- paste0 ("#+BEGIN_SRC R ", "\n")
                         rfile  <- readLines(file.path(rPath,i))
                         ender  <- paste0("#+BEGIN_SRC R ", "\n")
-
+                        write.table(rbind(heading, header,rfile, ender), orgName, sep = "\n",  append = T,quote = F, row.names = F)
                 }
-                write.table(rbind(heading, header,rfile, ender), orgName, sep = "\n",  append = T,quote = F, row.names = F)
+
                 message("Porcessing Finished")
 }
 catR2org("landsat")
