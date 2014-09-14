@@ -1,7 +1,9 @@
 catR2org  <- function(pkgRepo, pkgWD){
-                #pkgRepo  <- "landsat"
+                pkgRepo  <- "landsat"
                 pkgWD <- getwd()
                 pkgDir <- file.path(pkgWD,pkgRepo)
+                pkgDir
+
                 des  <- read.csv(file.path(pkgDir,"DESCRIPTION"), sep = ":", header = F)
 
                 pkgVer  <-des[des[,1] == "Version",][,2]
@@ -10,17 +12,13 @@ catR2org  <- function(pkgRepo, pkgWD){
                 pkgName  <-gsub("(^ *)|( *$)", "", pkgName)
                 orgName  <- paste0(pkgName, "_", pkgVer, ".org")
                 rPath  <- file.path(pkgDir, "/R")
-                rfiles  <- list.files(path = rPath, pattern = "\\.[rR]$")
-#                 file.create(orgName)
-#                 fileConn <- file(orgName)
-#                 writeLines(c(paste(i, j, k, "07"),"1","41.6318 -87.0881   10.0"), fileConn)
-#                 close(fileConn)
-#                 file.show("sample.txt")
-                for (i in c(rfiles)){
-                rfile  <- cat("* ", rfiles[i], "\n", "#+BEGIN_SRC R \n", readLines(file.path(rPath,rfiles[i])), "\n", "#+END_SRC \n")
-                write.table(rfile, orgName, sep = "\n",  append = TRUE, quote = FALSE, col.names = FALSE,row.names = FALSE)
-                #writeLines(rfile, fileConn)
-                }
 
+                for (i in c(list.files(path = rPath, pattern = "[rR]$"))){
+                        heading  <- paste0("* ", i, "\n")
+                        header  <- paste0 ("#+BEGIN_SRC R ", "\n")
+                        rfile  <- readLines(i)
+                        ender  <- paste0("#+END_SRC R ", "\n")
+                        write.table(rbind(heading, header,rfile, ender), orgName, sep = "\n",  append = T,quote = F, row.names = F)
+                }
+                message("Porcessing Finished")
 }
-catR2org("landsat")
