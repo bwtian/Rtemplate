@@ -9,7 +9,8 @@ catR2org  <- function(pkgRepo, pkgWD){
                 pkgName  <-gsub("(^ *)|( *$)", "", pkgName)
                 orgName  <- paste0(pkgName, "_", pkgVer, ".org")
 
-                for (i in )
+                for (i in list.files(pattern = "\.[rR]$"))
+                write.table(df, csvName, sep = ",", quote = F, row.names = F)
                         for i in $(\ls | grep ${1:-.R}); do
                         echo "* $i"  # subtree header title
                         echo "#+BEGIN_SRC R :session" # R session
