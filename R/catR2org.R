@@ -12,8 +12,8 @@ catR2org  <- function(pkgRepo, pkgWD){
                 rPath  <- file.path(pkgDir, "/R")
                 #readLines(file.path(rPath, "BSL.R"))
                 for (i in list.files(path = rPath, pattern = "[rR]$")){
-                        heading  <- paste0("* ", i, "\n")
-                        header  <- paste0 ("#+BEGIN_SRC R ", "\n")
+                        heading  <- paste0("* ", i)
+                        header  <- "#+BEGIN_SRC R"
                         rfile  <- readLines(file.path(rPath,i))
                         ender  <- paste0("#+BEGIN_SRC R ", "\n")
                         write.table(rbind(heading, header,rfile, ender), orgName, sep = "\n",  append = TRUE,quote = FALSE, col.names = FALSE,row.names = FALSE)
