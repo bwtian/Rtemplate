@@ -4,9 +4,9 @@ catR2org  <- function(pkgName, pkgWD){
                 des  <- read.csv(file.path(pkgDir,"DESCRIPTION"), sep = ":", header = F)
 
                 pkgVer  <-des[des[,1] == "Version",][,2]
-                pkgVer  <-gsub("(^ *)|( *$)", "", ver)
-
-
+                pkgVer  <-gsub("(^ *)|( *$)", "", pkgVer)
+                pkgName  <- des[des[,1] == "Package",][,2]
+                pkgName  <-gsub("(^ *)|( *$)", "", pkgName)
                 catR2org() {
                         echo "Usage: R2org PATTERN(regex) outfile"
                         package=$(cat ../DESCRIPTION | grep "Package:" | awk '{print $2}' | sed -e 's/^[ \t]*//')
