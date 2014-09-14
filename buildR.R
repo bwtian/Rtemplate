@@ -7,14 +7,16 @@ setwd(package.dir)
 # # 
 # #####################################################################
 
-library("roxygen2")
-roxygenise(package.dir=package.dir)
-# #####################################################################
-# # Build and 
-# #####################################################################
+
 
 system(command=paste("R CMD INSTALL '",package.dir,"'",sep=""))
 buildR <- function(pkgDir, pkgName) {
+        pkgDir = getwd()
+        if(!require("roxygen2")) {
+                install.packages("roxygen2")
+        } else {
+                roxygenise(package.dir=package.dir)
+        }
 
 
 }
