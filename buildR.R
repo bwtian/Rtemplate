@@ -14,7 +14,7 @@ roxygenise(package.dir=package.dir)
 # #####################################################################
 
 system(command=paste("R CMD INSTALL '",package.dir,"'",sep=""))
-buildR <- function(pkgName){
+buildR <- function(pkgDir, pkgName) {
 
 
 }
