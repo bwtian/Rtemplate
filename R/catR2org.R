@@ -8,7 +8,7 @@ catR2org  <- function(pkgRepo, pkgWD){
                 pkgName  <- des[des[,1] == "Package",][,2]
                 pkgName  <-gsub("(^ *)|( *$)", "", pkgName)
                 orgName  <- paste0(pkgName, "_", pkgVer, ".org")
-                rPath  <- file.path(pkgDir, "R")
+                rPath  <- file.path(pkgDir, "/R")
                 for (i in list.files(path = pattern = ".[rR]$")){
                         heading  <- paste0("* ", i, "\n")
                         header  <- paste0 ("#+BEGIN_SRC R ", "\n")
