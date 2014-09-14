@@ -18,7 +18,9 @@ catR2org  <- function(pkgRepo, pkgWD){
                         header  <- paste0 ("#+BEGIN_SRC R ", "\n")
                         rfile  <- readLines(file.path(rPath,i))
                         ender  <- paste0("#+BEGIN_SRC R ", "\n")
-                        write.table(rbind(heading, header,rfile, ender), orgName, sep = "\n",  append = T,quote = F, row.names = F)
+
                 }
+                write.table(rbind(heading, header,rfile, ender), orgName, sep = "\n",  append = T,quote = F, row.names = F)
                 message("Porcessing Finished")
 }
+catR2org("landsat")
