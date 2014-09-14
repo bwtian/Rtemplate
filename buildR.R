@@ -1,3 +1,4 @@
+### http://pjnewcombe.wordpress.com/2014/06/02/how-to-develop-an-r-package-in-rstudio-with-roxygen-comments/
 package.name <- "ExamplePackage"
 package.dir <- paste("~/Dropbox/Projects/R Packages/",package.name,sep="")
 setwd(package.dir)
