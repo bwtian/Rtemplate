@@ -1,13 +1,4 @@
-package.dir <- paste("~/Dropbox/Projects/R Packages/",package.name,sep="")
-setwd(package.dir)
-### --- Use Roxygenise to generate .RD files from my comments
-# #####################################################################
-# # 
-# #####################################################################
 
-
-
-system(command=paste("R CMD INSTALL '",package.dir,"'",sep=""))
 buildRpkg <- function( pkgName, pkgWD) {
         pkgWD <- getwd()
         pkgDir <- file.path(pkgWD,pkgName)
@@ -16,6 +7,6 @@ buildRpkg <- function( pkgName, pkgWD) {
         } else {
                 roxygenise(package.dir=package.dir)
         }
-
+system(command=paste("R CMD INSTALL '", pkgDir,"'",sep=""))
 
 }
