@@ -1,6 +1,6 @@
 catR2org  <- function(pkgRepo, pkgWD){
-                pkgRepo  <- "landsat"
-                #pkgWD <- getwd()
+                #pkgRepo  <- "landsat"
+                pkgWD <- getwd()
                 pkgDir <- file.path(pkgWD,pkgRepo)
                 des  <- read.csv(file.path(pkgDir,"DESCRIPTION"), sep = ":", header = F)
 
@@ -12,7 +12,7 @@ catR2org  <- function(pkgRepo, pkgWD){
                 rPath  <- file.path(pkgDir, "/R")
                 rfiles  <- list.files(path = rPath, pattern = "\\.[rR]$")
                 # readLines(file.path(rPath, "BSL.R"))
-                for (i %in% c(rfiles)){
+                for (i in rfiles){
                         heading  <- paste0("* ", i)
                         header  <- "#+BEGIN_SRC R"
                         rfile  <- readLines(file.path(rPath,i))
