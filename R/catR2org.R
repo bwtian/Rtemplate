@@ -12,11 +12,13 @@ catR2org  <- function(pkgRepo, pkgWD){
                 rPath  <- file.path(pkgDir, "/R")
                 rfiles  <- list.files(path = rPath, pattern = "\\.[rR]$")
                  readLines(file.path(rPath, "BSL.R"))
+                readLines(file.path(rPath,rfiles[1]),
                 rfiles[1]
                 for (i in 1:length(rfiles)){
-                        rfile  <- paste0("* ", rfiles[1], "\n", "#+BEGIN_SRC R \n", readLines(file.path(rPath,"/",rfiles[1]), "\n", "#+END_SRC \n"))
+                        rfile  <- cat("* ", rfiles[i], "\n", "#+BEGIN_SRC R \n", readLines(file.path(rPath,rfiles[i])), "\n", "#+END_SRC \n")
                 write.table(rfile, orgName, sep = "\n",  append = TRUE,quote = FALSE, col.names = FALSE,row.names = FALSE)
                 }
+                rfile
 
                 message("Porcessing Finished")
 }
