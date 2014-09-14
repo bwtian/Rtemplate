@@ -16,10 +16,10 @@ catR2org  <- function(pkgRepo, pkgWD){
                 writeLines(c(paste(i, j, k, "07"),"1","41.6318 -87.0881   10.0"), fileConn)
                 close(fileConn)
                 file.show("sample.txt")
-                for (i in 1:length(rfiles)){
-                rfile[i]  <- cat("* ", rfiles[i], "\n", "#+BEGIN_SRC R \n", readLines(file.path(rPath,rfiles[i])), "\n", "#+END_SRC \n")
-                #write.table(rfile, orgName, sep = "\n",  append = TRUE, quote = FALSE, col.names = FALSE,row.names = FALSE)
-                writeLines(rfile, fileConn)
+                for (i in c(rfiles)){
+                rfile  <- cat("* ", rfiles[i], "\n", "#+BEGIN_SRC R \n", readLines(file.path(rPath,rfiles[i])), "\n", "#+END_SRC \n")
+                write.table(rfile, orgName, sep = "\n",  append = TRUE, quote = FALSE, col.names = FALSE,row.names = FALSE)
+                #writeLines(rfile, fileConn)
                 }
 
 }
