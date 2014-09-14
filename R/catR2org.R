@@ -15,6 +15,5 @@ catR2org  <- function(pkgRepo, pkgWD){
                 rfile  <- cat("* ", rfiles[i], "\n", "#+BEGIN_SRC R \n", readLines(file.path(rPath,rfiles[i])), "\n", "#+END_SRC \n")
                 write.table(rfile, orgName, sep = "\n",  append = TRUE, quote = FALSE, col.names = FALSE,row.names = FALSE)
                 }
-                message("Porcessing Finished")
 }
 catR2org("landsat")
