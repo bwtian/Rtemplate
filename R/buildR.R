@@ -10,5 +10,4 @@ system(command=paste0("R CMD INSTALL '", pkgDir,"'"))
 # R CMD build package1
 # R CMD check package1_0.0.1.tar.gz
 # R CMD INSTALL package1_0.0.1.tar.gz
-
 }
