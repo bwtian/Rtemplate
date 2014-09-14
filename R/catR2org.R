@@ -2,8 +2,6 @@ catR2org  <- function(pkgRepo, pkgWD){
                 #pkgRepo  <- "landsat"
                 pkgWD <- getwd()
                 pkgDir <- file.path(pkgWD,pkgRepo)
-                pkgDir
-
                 des  <- read.csv(file.path(pkgDir,"DESCRIPTION"), sep = ":", header = F)
 
                 pkgVer  <-des[des[,1] == "Version",][,2]
@@ -18,7 +16,7 @@ catR2org  <- function(pkgRepo, pkgWD){
                         header  <- paste0 ("#+BEGIN_SRC R ", "\n")
                         rfile  <- readLines(file.path(rPath,i))
                         ender  <- paste0("#+BEGIN_SRC R ", "\n")
-                        write.table(rbind(heading, header,rfile, ender), orgName, sep = "\n",  append = T,quote = F, row.names = F)
+                        write.table(rbind(heading, header,rfile, ender), orgName, sep = "\n",  append = TRUE,quote = FALSE, col.names = FALSE,row.names = FALSE)
                 }
 
                 message("Porcessing Finished")
