@@ -11,7 +11,7 @@ catR2org  <- function(pkgRepo, pkgWD){
 
                 for (i in list.files(pattern = "\.[rR]$")){
                         heading  <- paste0("* " i, "\n")
-                        header  <- paste0 ("#+BEGIN_SRC R", "\n")
+                        header  <- paste0 ("#+BEGIN_SRC R ", "\n")
                         rfile  <- readLines(i)
 
                 }
