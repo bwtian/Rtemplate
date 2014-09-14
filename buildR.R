@@ -5,4 +5,8 @@ setwd(package.dir)
 ### --- Use Roxygenise to generate .RD files from my comments
 library(roxygen2)
 roxygenise(package.dir=package.dir)
+# #####################################################################
+# # Build and 
+# #####################################################################
+
 system(command=paste("R CMD INSTALL '",package.dir,"'",sep=""))
