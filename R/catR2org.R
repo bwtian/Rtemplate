@@ -1,12 +1,14 @@
-catR2org  <- function(pkgName, pkgWD){
+catR2org  <- function(pkgRepo, pkgWD){
                 pkgWD <- getwd()
-                pkgDir <- file.path(pkgWD,pkgName)
+                pkgDir <- file.path(pkgWD,pkgRepo)
                 des  <- read.csv(file.path(pkgDir,"DESCRIPTION"), sep = ":", header = F)
 
                 pkgVer  <-des[des[,1] == "Version",][,2]
                 pkgVer  <-gsub("(^ *)|( *$)", "", pkgVer)
                 pkgName  <- des[des[,1] == "Package",][,2]
                 pkgName  <-gsub("(^ *)|( *$)", "", pkgName)
+                orgName  <- paste(pkgName)
+
                 catR2org() {
                         echo "Usage: R2org PATTERN(regex) outfile"
                         package=$(cat ../DESCRIPTION | grep "Package:" | awk '{print $2}' | sed -e 's/^[ \t]*//')
