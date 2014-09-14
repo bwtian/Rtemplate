@@ -1,6 +1,5 @@
 buildR <- function(pkgName, pkgWD) {
-        WD <- "./"
-        pkgwd()  <- paste0("../", WD)
+        pkgwd()  <- "../"
         pkgDir <- file.path(pkgWD,pkgName)
         if(!require("roxygen2")) {
                 install.packages("roxygen2")
