@@ -7,7 +7,7 @@ catR2org  <- function(pkgRepo, pkgWD){
                 pkgVer  <-gsub("(^ *)|( *$)", "", pkgVer)
                 pkgName  <- des[des[,1] == "Package",][,2]
                 pkgName  <-gsub("(^ *)|( *$)", "", pkgName)
-                orgName  <- paste(pkgName)
+                orgName  <- paste0(pkgName,"_",".org")
 
                 catR2org() {
                         echo "Usage: R2org PATTERN(regex) outfile"
