@@ -1,5 +1,5 @@
 buildR <- function(pkgName, pkgWD) {
-        WD <- "."
+        WD <- "./"
         pkgwd()  <- paste0("../", WD)
         pkgDir <- file.path(pkgWD,pkgName)
         if(!require("roxygen2")) {
