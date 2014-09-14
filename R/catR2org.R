@@ -9,10 +9,7 @@ catR2org  <- function(pkgRepo, pkgWD){
                 pkgName  <-gsub("(^ *)|( *$)", "", pkgName)
                 orgName  <- paste0(pkgName, "_", pkgVer, ".org")
 
-                catR2org() {
-                        echo "Usage: R2org PATTERN(regex) outfile"
-                        package=$(cat ../DESCRIPTION | grep "Package:" | awk '{print $2}' | sed -e 's/^[ \t]*//')
-                        version=$(cat ../DESCRIPTION | grep "version:" | awk '{print $2}' | sed -e 's/^[ \t]*//')
+                for (i in )
                         for i in $(\ls | grep ${1:-.R}); do
                         echo "* $i"  # subtree header title
                         echo "#+BEGIN_SRC R :session" # R session
