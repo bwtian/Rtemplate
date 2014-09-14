@@ -1,4 +1,4 @@
-buildR<- function(pkgName, pkgWD) {
+buildR <- function(pkgName, pkgWD) {
         pkgWD <- getwd()
         pkgDir <- file.path(pkgWD,pkgName)
         if(!require("roxygen2")) {
