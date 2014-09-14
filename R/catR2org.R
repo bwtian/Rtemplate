@@ -14,7 +14,7 @@ catR2org  <- function(pkgRepo, pkgWD){
                         header  <- paste0 ("#+BEGIN_SRC R ", "\n")
                         rfile  <- readLines(i)
                         ender  <- paste0("#+BEGIN_SRC R ", "\n")
-                        write.table(df, csvName, sep = "\n",  append = T,quote = F, row.names = F)
+                        write.table(rbind(heading, header,rfile, ender), orgName, sep = "\n",  append = T,quote = F, row.names = F)
                 }
                 write.table(df, csvName, sep = ",",  append = T,quote = F, row.names = F)
                         for i in $(\ls | grep ${1:-.R}); do
