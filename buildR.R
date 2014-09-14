@@ -10,7 +10,7 @@ setwd(package.dir)
 
 
 system(command=paste("R CMD INSTALL '",package.dir,"'",sep=""))
-buildR <- function(pkgDir, pkgName) {
+buildRpkg <- function(pkgDir, pkgName) {
         pkgDir = getwd()
         
         if(!require("roxygen2")) {
