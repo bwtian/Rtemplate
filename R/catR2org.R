@@ -1,6 +1,9 @@
 catR2org  <- function(pkgRepo, pkgWD){
+                pkgRepo  <- "landsat"
                 pkgWD <- getwd()
                 pkgDir <- file.path(pkgWD,pkgRepo)
+                pkgDir
+
                 des  <- read.csv(file.path(pkgDir,"DESCRIPTION"), sep = ":", header = F)
 
                 pkgVer  <-des[des[,1] == "Version",][,2]
