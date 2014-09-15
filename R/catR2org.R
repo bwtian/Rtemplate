@@ -8,7 +8,9 @@ catR2org  <- function(pkgRepo, pkgWD){
                 pkgVer  <-gsub("(^ *)|( *$)", "", pkgVer)
                 pkgName  <- des[des[,1] == "Package",][,2]
                 pkgName  <-gsub("(^ *)|( *$)", "", pkgName)
+                AuthorName  <- des[des[,1] == "Package",][,2]
                 orgName  <- paste0(pkgName, "_", pkgVer, ".org")
+                write.table(des, orgName, sep = ":",  append = T,quote = F, row.names = F, col.names = F)
                 rPath  <- file.path(pkgDir, "/R")
                 rFiles  <- list.files(path = rPath, pattern = "[rR]$")
                 for (i in c(rFiles)){
@@ -18,6 +20,7 @@ catR2org  <- function(pkgRepo, pkgWD){
                         ender  <- "#+END_SRC"
                         write.table(rbind(heading, header,rfile, ender), orgName, sep = "\n",  append = T,quote = F, row.names = F, col.names = F)
                 }
+
                 message("Wrap R code files to Emacs Org-mode babel file Finished")
 }
 setwd("~/Dropbox/7src/R/landsat/0_Landsat_R")
