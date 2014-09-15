@@ -2,7 +2,11 @@ catR2org  <- function(pkgRepo, pkgWD){
                 pkgRepo  <- "landsat"
                 pkgWD <- getwd()
                 pkgDir <- file.path(pkgWD,pkgRepo)
-                des  <- read.csv(file.path(pkgDir,"DESCRIPTION"), sep = ":", header = F)
+                des  <- readLines(file.path(pkgDir,"DESCRIPTION"))
+                des1 = gsub(pattern="(^[^:]+):(.+$)",
+                                  replacement="\\1,\\2",
+                                  x=des)
+
 
                 pkgVer  <-des[des[,1] == "Version",][,2]
                 pkgVer  <-gsub("(^ *)|( *$)", "", pkgVer)
