@@ -13,6 +13,7 @@ catR2org  <- function(pkgRepo, pkgWD){
                 pkgName  <- des[des[,1] == "Package",][,2]
                 pkgName  <-gsub("(^ *)|( *$)", "", pkgName)
                 pkgDate  <- des[des[,1] == "Date",][,2]
+                pkgDate  <-gsub("(^ *)|( *$)", "", pkgDate)
                 AuthorName  <- des[des[,1] == "Author",][,2]
                 orgName  <- paste0(pkgName, "_", pkgVer, ".org")
                 write.table(des, orgName, sep = ":",  append = T,quote = F, row.names = F, col.names = F)
