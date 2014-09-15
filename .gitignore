@@ -3,8 +3,8 @@
 .Rhistory
 .RData
 .Rcheck
+
 RBuildPackage/man
 RBuildPackage/R
 *.tar.gz
-
 *~$
