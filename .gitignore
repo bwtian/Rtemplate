@@ -1,8 +1,10 @@
 .Rproj.user
-*.Rproj
+.Rproj
 .Rhistory
 .RData
+.Rcheck
 RBuildPackage/man
 RBuildPackage/R
 *.tar.gz
-*.Rcheck
+
+*~$
