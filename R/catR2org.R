@@ -6,7 +6,8 @@ catR2org  <- function(pkgRepo, pkgWD){
                 des2  <- gsub(pattern="(^[^:]+):(.+$)",
                                   replacement="\\1%\\2",
                                   x=des1)
-
+                des3  <- paste0("+ ", des1)
+                des3
                 des  <- as.data.frame(do.call(rbind,strsplit(des2, split = "%")))
                 pkgVer  <-des[des[,1] == "Version",][,2]
                 pkgVer  <-gsub("(^ *)|( *$)", "", pkgVer)
@@ -14,9 +15,12 @@ catR2org  <- function(pkgRepo, pkgWD){
                 pkgName  <-gsub("(^ *)|( *$)", "", pkgName)
                 pkgDate  <- des[des[,1] == "Date",][,2]
                 pkgDate  <-gsub("(^ *)|( *$)", "", pkgDate)
-                AuthorName  <- des[des[,1] == "Author",][,2]
-                orgName  <- paste0(pkgName, "_", pkgVer, ".org")
-                write.table(des, orgName, sep = ":",  append = T,quote = F, row.names = F, col.names = F)
+                pkgAuthor  <- des[des[,1] == "Author",][,2]
+                pkgAuthor  <-gsub("(^ *)|( *$)", "", pkgAuthor)
+                pkgAuthor  <-gsub("\\s", "-", pkgAuthor)
+                pkgAuthor
+                orgName  <- paste0(pkgName, "_", pkgVer, "_(", pkgDate, "_by_",pkgAuthor,").org")
+                write.table(des3, orgName, sep = ":",  append = T,quote = F, row.names = F, col.names = F)
                 rPath  <- file.path(pkgDir, "/R")
                 rFiles  <- list.files(path = rPath, pattern = "[rR]$")
                 for (i in c(rFiles)){
