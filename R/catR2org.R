@@ -2,8 +2,6 @@ catR2org  <- function(pkgRepo, pkgWD){
                 pkgRepo  <- "landsat"
                 pkgWD <- getwd()
                 pkgDir <- file.path(pkgWD,pkgRepo)
-                pkgDir
-
                 des  <- read.csv(file.path(pkgDir,"DESCRIPTION"), sep = ":", header = F)
 
                 pkgVer  <-des[des[,1] == "Version",][,2]
@@ -12,13 +10,15 @@ catR2org  <- function(pkgRepo, pkgWD){
                 pkgName  <-gsub("(^ *)|( *$)", "", pkgName)
                 orgName  <- paste0(pkgName, "_", pkgVer, ".org")
                 rPath  <- file.path(pkgDir, "/R")
-
-                for (i in c(list.files(path = rPath, pattern = "[rR]$"))){
-                        heading  <- paste0("* ", i, "\n")
-                        header  <- paste0 ("#+BEGIN_SRC R ", "\n")
-                        rfile  <- readLines(i)
-                        ender  <- paste0("#+END_SRC", "\n")
-                        write.table(rbind(heading, header,rfile, ender), orgName, sep = "\n",  append = T,quote = F, row.names = F)
+                rFiles  <- list.files(path = rPath, pattern = "[rR]$")
+                for (i in c(rFiles)){
+                        heading  <- paste0("* ", i)
+                        header  <- "#+BEGIN_SRC R "
+                        rfile  <- read.table(file = file.path(rPath,i), sep = "\n")
+                        ender  <- "#+END_SRC"
+                        write.table(rbind(heading, header,rfile, ender), orgName, sep = "\n",  append = T,quote = F, row.names = F, col.names = F)
                 }
-                message("Porcessing Finished")
+                message("Wrap R code file to Emacs Org-mode babel file Finished")
 }
+setwd("~/Dropbox/7src/R/landsat/0_Landsat_R")
+catR2org("landsat")
