@@ -2,17 +2,18 @@ catR2org  <- function(pkgRepo, pkgWD){
                 pkgRepo  <- "landsat"
                 pkgWD <- getwd()
                 pkgDir <- file.path(pkgWD,pkgRepo)
-                des  <- readLines(file.path(pkgDir,"DESCRIPTION"))
-                des1 = gsub(pattern="(^[^:]+):(.+$)",
-                                  replacement="\\1,\\2",
-                                  x=des)
+                des1  <- readLines(file.path(pkgDir,"DESCRIPTION"))
+                des2  <- gsub(pattern="(^[^:]+):(.+$)",
+                                  replacement="\\1%\\2",
+                                  x=des1)
 
-
+                des  <- as.data.frame(do.call(rbind,strsplit(des2, split = "%")))
                 pkgVer  <-des[des[,1] == "Version",][,2]
                 pkgVer  <-gsub("(^ *)|( *$)", "", pkgVer)
                 pkgName  <- des[des[,1] == "Package",][,2]
                 pkgName  <-gsub("(^ *)|( *$)", "", pkgName)
-                AuthorName  <- des[des[,1] == "Package",][,2]
+                pkgDate  <- des[des[,1] == "Date",][,2]
+                AuthorName  <- des[des[,1] == "Author",][,2]
                 orgName  <- paste0(pkgName, "_", pkgVer, ".org")
                 write.table(des, orgName, sep = ":",  append = T,quote = F, row.names = F, col.names = F)
                 rPath  <- file.path(pkgDir, "/R")
