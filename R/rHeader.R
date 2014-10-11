@@ -1,16 +1,30 @@
+### Main
+#' @title fit one line
 #'
-#' @title
-#'
-#' @name
 #' @description
-#' @usage
-
+#'
+#' @details
+#'
 #' @note
+#'
+### Documenting datasets
+#' @name
+#' @format
+#' @source  \url{http://www.nasa.gov/}
+
+### Author and Cross citation
 #' @author Bingwei Tian \email{bwtian@gmail.com}
-#' @seealso \code{\link{xxx}}
+#' @keywords
+#' @aliases                          #?aliasA
+#' @seealso \code{\link{xxx}} \url{http://www.r-project.org}
 #' @references
+### S4
+#' @slot
+### Core
 #' @import sp
 #' @param
 #' @param
+#' @return
 #' @export
+#' @usage
 #' @examples
