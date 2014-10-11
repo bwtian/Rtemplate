@@ -6,7 +6,7 @@
 #' @details
 #'
 #' @note
-#'
+#' @rdname
 ### Documenting datasets
 #' @name
 #' @format
