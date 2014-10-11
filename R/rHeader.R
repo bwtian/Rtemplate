@@ -7,9 +7,8 @@
 #' @param
 #' @note
 #' @author Bingwei Tian <bwtian@gmail.com>
-#' @seealso
+#' @seealso \code{\link{xxx}} 
 #' @references
-#' @examples
 #' @import sp
 #' @export
-
+#' @examples
