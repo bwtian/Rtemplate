@@ -2,3 +2,7 @@ LICENSE
 ^\.travis\.yml$
 ^.*\.Rproj$
 ^\.Rproj\.user$
+inst/demo
+.project
+.git
+.gitignore 
